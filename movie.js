@@ -32,7 +32,7 @@ theatres = new Set([
 
 toEmails = [
   'harishcriro07@gmail.com',
-  'rollingrocky360@gmail.com',
+  // 'rollingrocky360@gmail.com',
   // 'anirudhless@gmail.com',
   // 'pavan2010660@ssn.edu.in',
   // 'natarajan2010805@ssn.edu.in',
@@ -70,10 +70,10 @@ setInterval(() => {
     .catch(function (error) {
       console.error(error);
     });
-}, 1000)
+}, 15000)
 
 app.get('/ping', (req, res) => {
   res.send('pong')
 })
 
-// app.listen(3000);
+app.listen(3000);
