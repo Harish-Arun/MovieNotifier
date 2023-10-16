@@ -96,7 +96,7 @@ setInterval(async () => {
       console.log('Email sent: ' + info.response);
     }
   });
-}, 1000)
+}, 15000)
 
 app.get('/ping', (req, res) => {
   res.send('pong')
