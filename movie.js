@@ -1,6 +1,8 @@
 const axios = require("axios");
 var nodemailer = require('nodemailer');
-
+const express=require('express')
+const app=express()
+const cors=require('cors')
 APP_PASS = process.env.APP_PASS
 
 var transporter = nodemailer.createTransport({
@@ -69,3 +71,9 @@ setInterval(() => {
       console.error(error);
     });
 }, 1000)
+
+app.get('/ping', (req, res) => {
+  res.send('pong')
+})
+
+app.listen(80, '0.0.0.0');
