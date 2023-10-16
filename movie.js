@@ -33,11 +33,11 @@ theatres = new Set([
 toEmails = [
   'harishcriro07@gmail.com',
   'rollingrocky360@gmail.com',
-  'anirudhless@gmail.com',
-  'pavan2010660@ssn.edu.in',
-  'natarajan2010805@ssn.edu.in',
-  'madeshwaran2010760@ssn.edu.in',
-  'bathri768@gmail.com',
+  // 'anirudhless@gmail.com',
+  // 'pavan2010660@ssn.edu.in',
+  // 'natarajan2010805@ssn.edu.in',
+  // 'madeshwaran2010760@ssn.edu.in',
+  // 'bathri768@gmail.com',
 ]
 
 
@@ -76,4 +76,4 @@ app.get('/ping', (req, res) => {
   res.send('pong')
 })
 
-app.listen(80, '0.0.0.0');
+// app.listen(3000);
