@@ -32,12 +32,12 @@ theatres = new Set([
 
 toEmails = [
   'harishcriro07@gmail.com',
-  // 'rollingrocky360@gmail.com',
-  // 'anirudhless@gmail.com',
-  // 'pavan2010660@ssn.edu.in',
-  // 'natarajan2010805@ssn.edu.in',
-  // 'madeshwaran2010760@ssn.edu.in',
-  // 'bathri768@gmail.com',
+  'rollingrocky360@gmail.com',
+  'anirudhless@gmail.com',
+  'pavan2010660@ssn.edu.in',
+  'natarajan2010805@ssn.edu.in',
+  'madeshwaran2010760@ssn.edu.in',
+  'bathri768@gmail.com',
 ]
 
 
