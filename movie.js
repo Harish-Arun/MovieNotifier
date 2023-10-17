@@ -38,7 +38,10 @@ toEmails = [
   'natarajan2010805@ssn.edu.in',
   'madeshwaran2010760@ssn.edu.in',
   'bathri768@gmail.com',
-  'deepakkumark852@gmail.com'
+  'deepakkumark852@gmail.com',
+  'jaivignesh12345@gmail.com',
+  'punarv14@gmail.com',
+  'natarajansarbesh@gmail.com'
 ]
 
 
