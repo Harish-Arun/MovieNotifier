@@ -16,50 +16,54 @@ var transporter = nodemailer.createTransport({
 var sent = new Set()
 
 theatres = new Set([
-  "PVR VR Mall, Anna Nagar",
+  "PVR Inox VR Mall, Anna Nagar",
   "Kasi 4K Dolby Atmos, Ashok Nagar",
-  "INOX Chandra Metro Mall, Virugambakkam",
+  "INOX National, Virugambakkam",
   "INOX The Marina Mall OMR, Egatoor",
   "AGS Cinemas OMR Navlur",
-  "PVR Palazzo-The Nexus Vijaya Mall",
-  "PVR Escape-Express Avenue Mall",
-  "PVR Sathyam Royapettah",
+  "PVR Inox Palazzo, The Nexus Vijaya Mall",
+  "PVR Inox Escape-Express Avenue Mall",
+  "PVR Inox Sathyam, Royapettah Chennai",
   "INOX Phoenix Market City, Velachery (formerly Jazz Cinemas)",
-  "PVR Grand Mall, Velachery",
+  "PVR Inox Grand Mall, Velachery",
   "Kamala Cinemas, Vadapalani",
   "Vettri Theatres RGB Laser, Chrompet",
+  "Casino Cinemas 4K RGB Laser 3D A/C Dolby 7.1.2, Mount Road",
+  "Varadaraja Cinemas 4K RGB Laser Dolby Atmos",
+  "Devi Cineplex, Anna Salai",
+  "Kasi RGB Laser Dolby Atmos, Ashok Nagar"
 ]);
 
 toEmails = [
   'harishcriro07@gmail.com',
-  'rollingrocky360@gmail.com',
-  'anirudhless@gmail.com',
-  'pavan2010660@ssn.edu.in',
-  'natarajan2010805@ssn.edu.in',
-  'madeshwaran2010760@ssn.edu.in',
+  'jiitesh2003@gmail.com',
   'bathri768@gmail.com',
   'deepakkumark852@gmail.com',
   'jaivignesh12345@gmail.com',
-  'punarv14@gmail.com',
-  'natarajansarbesh@gmail.com',
-  'mohamed2010673@ssn.edu.in'
+  'mughilankathiresan@gmail.com',
+  'sbnivetha@gmail.com',
 ]
 
+//https://apiproxy.paytm.com/v3/movies/search/movie?meta=1&reqData=1&city=chennai&movieCode=b_odqglzc&date=2024-09-06&version=3&site_id=6&channel=HTML5&child_site_id=370&client_id=ticketnew&clientId=ticketnew
 
 setInterval(async () => {
   result = [];
-  for (let date = 19; date < 23; date++) {
+  for (let date = 5; date <= 8; date++) {
     try {
-      const response = await axios.get(`https://apiproxy.paytm.com/v3/movies/search/movie?meta=1&reqData=1&city=chennai&movieCode=rur_1kciu&date=2023-10-${date}&version=3&site_id=6&channel=HTML5&child_site_id=370`)
-      val = response.data;
-      cinemas = val.meta.cinemas;
+      // Conditionally format the date with a leading zero if it's less than 10
+      const formattedDate = date < 10 ? `0${date}` : date;
+  
+      const response = await axios.get(`https://apiproxy.paytm.com/v3/movies/search/movie?meta=1&reqData=1&city=chennai&movieCode=b_odqglzc&date=2024-09-${formattedDate}&version=3&site_id=6&channel=HTML5&child_site_id=370&client_id=ticketnew&clientId=ticketnew`)
+      const val = response.data;
+      const cinemas = val.meta.cinemas;
+      // console.log(cinemas);
       for (let i in cinemas) {
-        if (theatres.has(cinemas[i].name) && !sent.has(cinemas[i].name + ',' + date)) {
-          sent.add(cinemas[i].name + ',' + date)
-          console.log(cinemas[i].name, date)
+        if (theatres.has(cinemas[i].name) && !sent.has(cinemas[i].name + ',' + formattedDate)) {
+          sent.add(cinemas[i].name + ',' + formattedDate)
+          console.log(cinemas[i].name, formattedDate)
           result.push({
-            name: cinemas[i].name, 
-            date: date + "/10/2023\n"
+            name: cinemas[i].name,
+            date: formattedDate + "/09/2024\n"
           })
         }
       }
@@ -68,6 +72,7 @@ setInterval(async () => {
       return
     }
   }
+  
   if (result.length === 0) return;
 
   message = `
@@ -90,7 +95,7 @@ setInterval(async () => {
   var mailOptions = {
     from: 'movienotifier91@gmail.com',
     to: toEmails,
-    subject: 'Ticket Open for leo',
+    subject: 'Ticket Open for GOAT.',
     html: message,
   };
   transporter.sendMail(mailOptions, function (error, info) {
