@@ -4,7 +4,6 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 APP_PASS = process.env.APP_PASS
-
 var transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
@@ -42,6 +41,9 @@ toEmails = [
   'jaivignesh12345@gmail.com',
   'mughilankathiresan@gmail.com',
   'sbnivetha@gmail.com',
+  'sundar412003@gmail.com',
+  'vinoth97217@gmail.com',
+  'arunramana0910@gmail.com'
 ]
 
 //https://apiproxy.paytm.com/v3/movies/search/movie?meta=1&reqData=1&city=chennai&movieCode=b_odqglzc&date=2024-09-06&version=3&site_id=6&channel=HTML5&child_site_id=370&client_id=ticketnew&clientId=ticketnew
@@ -94,7 +96,7 @@ setInterval(async () => {
 
   var mailOptions = {
     from: 'movienotifier91@gmail.com',
-    to: toEmails,
+    bcc: toEmails,
     subject: 'Ticket Open for GOAT.',
     html: message,
   };
